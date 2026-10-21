@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tiny Harbor · technical page</title>
+<style>
+  body{font:16px/1.6 system-ui,-apple-system,"Segoe UI",sans-serif;max-width:640px;margin:48px auto;padding:0 16px;color:#222;background:#fafaf7}
+  @media (prefers-color-scheme:dark){body{color:#e6e6e0;background:#16181a}}
+  h1{font-size:22px;margin:0 0 4px} p{margin:8px 0} code{font-size:14px}
+  table{border-collapse:collapse;margin-top:16px} td{padding:6px 16px 6px 0}
+</style>
+</head>
+<body>
+<h1>Tiny Harbor</h1>
+<p>Technical support page for Tiny Harbor apps (version information used by the apps' update notice).</p>
+<table>
+  <tr><td>GreenClock</td><td>current version: <code id="gc">…</code></td></tr>
+</table>
+<script>
+fetch('greenclock/version.json', { cache: 'no-store' }).then(r => r.json()).then(j => { document.getElementById('gc').textContent = j.version; }).catch(() => {});
+</script>
+</body>
+</html>
